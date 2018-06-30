@@ -1,7 +1,7 @@
 #!/usr.bin.python
 
 class TwitterConfig():
-
+    # write keys
     def __init__(self):
          self.access_key = "Access Key"
         self.access_secret = "Access Secret"
