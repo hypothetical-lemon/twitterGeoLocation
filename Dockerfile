@@ -4,7 +4,7 @@ LABEL HEATHER LEMON mcmillenh90@gmail.com
 ADD Tweets.py /
 ADD requirements.txt /
 
-RUN apt-get update && apt-get install -y python3.6 \
+RUN apt-get update && apt-get install -y python3.7 \
     python-pip python-redis
 
 RUN pip install -r requirements.txt 

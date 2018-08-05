@@ -14,10 +14,14 @@ class Tweets():
                       input_encoding=None)
         self.sink = Sink(host="192.168.1.6", port="31536")
 
-    def getTweets(self): 
-        for line in self.api.GetStreamFilter(track=['@realDonaldTrump']):
-            print(json.dumps(line))
-            self.sink.write(json.dumps(line))
+    def getTweets(self):
+        stream = self.api.GetStreamFilter(track=['@realDonaldTrump'])
+        try:
+            for line in stream:
+                print(json.dumps(line))
+                self.sink.write(json.dumps(line))
+        finally:
+            stream.close()
         
 def main():
     tweet = Tweets()
