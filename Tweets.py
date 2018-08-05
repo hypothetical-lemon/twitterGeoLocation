@@ -1,4 +1,4 @@
-#!/usr.bin.python
+#!/usr/bin/python3.7
 
 import twitter
 import json
@@ -12,7 +12,7 @@ class Tweets():
         self.api = twitter.Api(consumer_key=self.config.consumer_key, consumer_secret=self.config.consumer_secret,
                       access_token_key=self.config.access_key, access_token_secret=self.config.access_secret,
                       input_encoding=None)
-        self.sink = Sink(host="192.168.1.6", port="31536")
+        self.sink = Sink(host="redis", port="6357")
 
     def getTweets(self):
         stream = self.api.GetStreamFilter(track=['@realDonaldTrump'])
