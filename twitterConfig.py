@@ -2,7 +2,7 @@
 import json
 
 
-class TwitterConfig():
+class TwitterConfig:
 
     def __init__(self):
         # Read in from file?  or take in additional params for constructions
@@ -10,15 +10,17 @@ class TwitterConfig():
             with open('config.json', 'r') as json_data_file:
                 config = json.load(json_data_file)
 
-                self.access_key = config['twitter_key']['access_key']
-                self.access_secret = config['twitter_key']['access_secret']
-                self.consumer_key = config['twitter_key']['consumer_key']
-                self.consumer_secret = config['twitter_key']['consumer_secret']
+                self.token_key = config['token_key']
+                self.token_secret = config['token_secret']
+                self.consumer_key = config['consumer_key']
+                self.consumer_secret = config['consumer_secret']
         finally:
             json_data_file.close() 
-        
+
+
 def main():
-    twitterConfig = TwitterConfig()
+    TwitterConfig()
+
 
 if __name__ == "__main__":
     main()
